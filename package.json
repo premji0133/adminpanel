@@ -5,8 +5,8 @@
     "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
     "lite": "lite-server",
     "tsc": "tsc",
-    "tsc:w": "tsc -w",
-    "port": "8000"
+    "tsc:w": "tsc -w"
+    
   },
   "licenses": [
     {
