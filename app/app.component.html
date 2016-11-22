@@ -1,0 +1,25 @@
+
+<app-header></app-header>
+
+<md-sidenav-layout  >
+
+  
+
+   
+       <md-sidenav #sidenav mode="side" class="app-sidenav" opened="true">
+            <app-sidebar>
+
+    
+
+            </app-sidebar>
+       </md-sidenav>
+      <div class="app-body">
+       <button md-raised-button class="app-top-1" (click)="sidenav.toggle()">
+      <i class="material-icons app-toolbar-menu">menu</i>
+    </button>
+      
+<router-outlet></router-outlet>
+</div>
+   </md-sidenav-layout>
+
+   
