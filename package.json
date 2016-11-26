@@ -39,6 +39,8 @@
     "lite-server": "^2.2.2",
     "typescript": "^2.0.3"
   },
-   "engines" : { "npm" : "^1.0.20" } ,
+   "engines" : { "npm" : "^1.0.20",
+               "node": "7.2.0"
+               } ,
    "os" : [ "win32" ]
 }
