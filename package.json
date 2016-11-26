@@ -42,5 +42,5 @@
    "engines" : { "npm" : "3.10.9",
                "node": "7.2.0"
                } ,
-   "os" : [ "win32" ]
+ "os":{"linux","arch":"x64"}
 }
