@@ -1,12 +1,19 @@
 {
-  "name": "angular2panel",
+  "name": "Destiny-panel",
   "version": "1.0.0",
+  "private": true,
   "scripts": {
-    "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
-    "lite": "lite-server",
+   "start": "concurrently \"tsc -w\" \"nodemon ./bin/www\" ",
     "tsc": "tsc",
-    "tsc:w": "tsc -w"
+    "tsc:w": "tsc -w",
+    "prod": "NODE_ENV=production ./bin/www",
+    "build:prod": "node bin/bundler.js --prod",
+    "postinstall": "npm run build:prod"
     
+  },
+  
+   "repository": {
+    "url": "https://github.com/prems021/adminpanel"
   },
   "licenses": [
     {
@@ -15,6 +22,11 @@
     }
   ],
   "dependencies": {
+     "body-parser": "~1.13.2",
+    "cookie-parser": "~1.3.5",
+    "debug": "~2.2.0",
+    "express": "~4.13.1",
+    "morgan": "~1.6.1",
     "@angular/common": "~2.2.0",
     "@angular/compiler": "~2.2.0",
     "@angular/core": "~2.2.0",
@@ -29,13 +41,17 @@
     "core-js": "^2.4.1",
     "reflect-metadata": "^0.1.8",
     "rxjs": "5.0.0-beta.12",
-    "systemjs": "0.19.39",
+    
     "zone.js": "^0.6.25",
      "@types/core-js": "^0.9.34",
+    "systemjs-builder": "^0.15.17",
     "@types/node": "^6.0.45",
-    "concurrently": "^3.0.0",
-    "lite-server": "^2.2.2",
-    "typescript": "^2.0.3"
+   
+   
+    "typescript": "^2.0.3",
+     
+    "yargs": "^4.7.1",
+    "compression": "^1.6.2"
   },
    "compilerOptions": {
     "target": "es5",
@@ -47,10 +63,11 @@
     "removeComments": false,
     "noImplicitAny": false
   },
-  "globalDependencies": {
-    "core-js": "registry:dt/core-js#0.0.0+20160725163759",
-    "jasmine": "registry:dt/jasmine#2.2.0+20160621224255",
-    "node": "registry:dt/node#6.0.0+20160909174046"
+  
+  "devDependencies": {
+    "nodemon": "^1.11.0",
+    "systemjs": "0.19.39",
+    "concurrently": "^3.0.0"
   },
    "engines" : { "npm" : "3.10.9",
                "node": "7.2.0"
