@@ -38,5 +38,7 @@
     "concurrently": "^3.0.0",
     "lite-server": "^2.2.2",
     "typescript": "^2.0.3"
-  }
+  },
+   "engines" : { "npm" : "^1.0.20" } ,
+   "os" : [ "win32" ]
 }
