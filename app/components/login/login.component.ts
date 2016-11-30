@@ -47,11 +47,17 @@ export class LoginComponent implements OnInit {
       console.log('model',this.model);
         this.authenticationService.login(this.model)
             .subscribe(data => { 
-                    this.router.navigate(['/']);
+                    
+                     this.router.navigate(['dashboard']);
+                      this.router.navigate(['/']);
+                     window.location.reload();
                 },
+                
                 error => {
                     
                     this.loading = false;
                 });
+
+             
     }
 }
