@@ -9,26 +9,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var HeaderComponent = (function () {
-    function HeaderComponent() {
-        this.isDarkTheme = false;
-        this.notificaciones = 2;
+var router_1 = require('@angular/router');
+var AboutComponent = (function () {
+    function AboutComponent(params) {
+        var _this = this;
+        this.params = params;
+        this.name = "About Us";
+        params.params
+            .subscribe(function (data) { return _this.param = data.id; });
     }
-    HeaderComponent.prototype.ngOnInit = function () {
-    };
-    HeaderComponent.prototype.logout = function () {
-        localStorage.removeItem('currentUser');
-    };
-    HeaderComponent = __decorate([
+    AboutComponent = __decorate([
         core_1.Component({
-            moduleId: module.id,
-            selector: 'app-header',
-            templateUrl: 'header.component.html',
-            styleUrls: ['header.component.css']
+            selector: 'my-about',
+            templateUrl: 'components/about/about.component.html',
+            styleUrls: ['components/about/about.component.css']
         }), 
-        __metadata('design:paramtypes', [])
-    ], HeaderComponent);
-    return HeaderComponent;
+        __metadata('design:paramtypes', [router_1.ActivatedRoute])
+    ], AboutComponent);
+    return AboutComponent;
 }());
-exports.HeaderComponent = HeaderComponent;
-//# sourceMappingURL=header.component.js.map
+exports.AboutComponent = AboutComponent;
+//# sourceMappingURL=about.component.js.map

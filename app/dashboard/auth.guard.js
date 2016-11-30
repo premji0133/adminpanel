@@ -9,26 +9,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var HeaderComponent = (function () {
-    function HeaderComponent() {
-        this.isDarkTheme = false;
-        this.notificaciones = 2;
+var router_1 = require('@angular/router');
+var AuthGuard = (function () {
+    function AuthGuard(router) {
+        this.router = router;
     }
-    HeaderComponent.prototype.ngOnInit = function () {
+    AuthGuard.prototype.canActivate = function () {
+        if (localStorage.getItem('currentUser')) {
+            // logged in so return true
+            return true;
+        }
+        // not logged in so redirect to login page
+        this.router.navigate(['/login']);
+        return false;
     };
-    HeaderComponent.prototype.logout = function () {
-        localStorage.removeItem('currentUser');
-    };
-    HeaderComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'app-header',
-            templateUrl: 'header.component.html',
-            styleUrls: ['header.component.css']
-        }), 
-        __metadata('design:paramtypes', [])
-    ], HeaderComponent);
-    return HeaderComponent;
+    AuthGuard = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [router_1.Router])
+    ], AuthGuard);
+    return AuthGuard;
 }());
-exports.HeaderComponent = HeaderComponent;
-//# sourceMappingURL=header.component.js.map
+exports.AuthGuard = AuthGuard;
+//# sourceMappingURL=auth.guard.js.map

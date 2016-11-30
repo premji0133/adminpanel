@@ -9,26 +9,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var HeaderComponent = (function () {
-    function HeaderComponent() {
-        this.isDarkTheme = false;
-        this.notificaciones = 2;
+var auth_guard_1 = require('./dashboard/auth.guard');
+var AppComponent = (function () {
+    function AppComponent(auth_guard) {
+        this.auth_guard = auth_guard;
+        this.logged = false;
     }
-    HeaderComponent.prototype.ngOnInit = function () {
+    AppComponent.prototype.ngOnInit = function () {
+        this.checklog();
     };
-    HeaderComponent.prototype.logout = function () {
-        localStorage.removeItem('currentUser');
+    AppComponent.prototype.checklog = function () {
+        this.logged = this.auth_guard.canActivate();
     };
-    HeaderComponent = __decorate([
+    AppComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            selector: 'app-header',
-            templateUrl: 'header.component.html',
-            styleUrls: ['header.component.css']
+            selector: 'my-app',
+            templateUrl: 'app.component.html',
+            styleUrls: ['./app.component.css']
         }), 
-        __metadata('design:paramtypes', [])
-    ], HeaderComponent);
-    return HeaderComponent;
+        __metadata('design:paramtypes', [auth_guard_1.AuthGuard])
+    ], AppComponent);
+    return AppComponent;
 }());
-exports.HeaderComponent = HeaderComponent;
-//# sourceMappingURL=header.component.js.map
+exports.AppComponent = AppComponent;
+//# sourceMappingURL=app.component.js.map

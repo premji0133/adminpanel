@@ -1,21 +1,23 @@
-import { Component } from '@angular/core';
-
+import { Component,Inject, OnInit  } from '@angular/core';
+import { AuthGuard } from './dashboard/auth.guard';
 @Component({
-    selector: 'my-app',
-    styles: [`h1 {
-	color: white;
-	background: darkgray;
-	padding: 20px;
-}
-`],
-    template: `
-<h1>My First {{name}} app</h1>
-<router-outlet></router-outlet>
-
-<a [routerLink]="['/']">Home</a> | <a [routerLink]="['/about/', { id: 2 }]">About</a>`,
+    moduleId: module.id,
+  selector: 'my-app',
+  templateUrl: 'app.component.html',
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-    name: string = "Angular 2 on Express";
+export class AppComponent implements OnInit {
+   
 
-    constructor() {}
+    constructor(private auth_guard:AuthGuard ) { }
+logged: boolean = false;
+
+ ngOnInit()  {
+     this.checklog();
+ }
+
+checklog()
+{
+this.logged= this.auth_guard.canActivate();
+}
 }

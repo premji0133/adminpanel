@@ -86,3 +86,8 @@ md-card {
 {
    background-color:#ff6655;
 }
+.router-outlet
+{
+  float:left;
+  margin-top:0px;
+}

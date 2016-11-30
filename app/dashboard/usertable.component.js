@@ -9,44 +9,38 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
-var mock_1 = require('../services/mock');
+var mocks_1 = require('./mocks');
 var data_service_1 = require('../services/data.service');
 require('rxjs/add/operator/toPromise');
-var DashboardComponent = (function () {
-    function DashboardComponent(router, Ds) {
+var router_1 = require('@angular/router');
+var UsertableComponent = (function () {
+    function UsertableComponent(router, Ds) {
         this.router = router;
         this.Ds = Ds;
-        this.parsedata = [new mock_1.Parse(0, '', '', true, new Date(), '', '', '', '', '', 0, '', 0)];
-        this.driverlist = [];
-        this.progress = 0;
+        this.parsedata = [new mocks_1.Parse(0, '', '', true, new Date(), '', '', '', '', '', 0, '', 0)];
+        this.hiddeInfoUser = true;
     }
-    DashboardComponent.prototype.getdata = function () {
+    UsertableComponent.prototype.getdata = function () {
         var _this = this;
         this.Ds.getuserlist().then(function (parsedata) { return _this.parsedata = parsedata; });
+        console.log('data==', this.parsedata);
     };
-    DashboardComponent.prototype.getdriverdetails = function () {
-        var _this = this;
-        this.Ds.getdriverlist().then(function (driverlist) { return _this.driverlist = driverlist; });
+    UsertableComponent.prototype.showdata = function () {
     };
-    DashboardComponent.prototype.ngOnInit = function () {
-        var _this = this;
+    UsertableComponent.prototype.ngOnInit = function () {
+        this.showdata();
         this.getdata();
-        setInterval(function () {
-            _this.progress = (_this.progress + Math.floor(Math.random() * 4) + 1) % 100;
-        }, 200);
-        this.getdriverdetails();
     };
-    DashboardComponent = __decorate([
+    UsertableComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            selector: 'dashboard',
-            templateUrl: 'dashboard.component.html',
-            styleUrls: ['dashboard.component.css']
+            selector: 'user-table',
+            templateUrl: 'usertable.component.html',
+            styleUrls: ['usertable.component.css']
         }), 
         __metadata('design:paramtypes', [router_1.Router, data_service_1.DataService])
-    ], DashboardComponent);
-    return DashboardComponent;
+    ], UsertableComponent);
+    return UsertableComponent;
 }());
-exports.DashboardComponent = DashboardComponent;
-//# sourceMappingURL=dashboard.component.js.map
+exports.UsertableComponent = UsertableComponent;
+//# sourceMappingURL=usertable.component.js.map

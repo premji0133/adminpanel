@@ -9,26 +9,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var HeaderComponent = (function () {
-    function HeaderComponent() {
-        this.isDarkTheme = false;
-        this.notificaciones = 2;
+var http_1 = require("@angular/http");
+require('rxjs/add/operator/map');
+var HomeComponent = (function () {
+    function HomeComponent(http) {
+        var _this = this;
+        this.name = "Home page";
+        http.get("/users")
+            .map(function (data) { return data.json(); })
+            .subscribe(function (data) { return _this.users = data; });
     }
-    HeaderComponent.prototype.ngOnInit = function () {
-    };
-    HeaderComponent.prototype.logout = function () {
-        localStorage.removeItem('currentUser');
-    };
-    HeaderComponent = __decorate([
+    HomeComponent = __decorate([
         core_1.Component({
-            moduleId: module.id,
-            selector: 'app-header',
-            templateUrl: 'header.component.html',
-            styleUrls: ['header.component.css']
+            selector: 'my-home',
+            templateUrl: 'components/home/home.component.html',
+            styleUrls: ['components/home/home.component.css']
         }), 
-        __metadata('design:paramtypes', [])
-    ], HeaderComponent);
-    return HeaderComponent;
+        __metadata('design:paramtypes', [http_1.Http])
+    ], HomeComponent);
+    return HomeComponent;
 }());
-exports.HeaderComponent = HeaderComponent;
-//# sourceMappingURL=header.component.js.map
+exports.HomeComponent = HomeComponent;
+//# sourceMappingURL=home.component.js.map
