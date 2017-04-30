@@ -3,7 +3,7 @@ import { FormsModule }   from '@angular/forms';
 import {ReactiveFormsModule} from "@angular/forms";
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule, JsonpModule } from '@angular/http';
-import { MaterialModule } from '@angular/material';
+
 import { AppComponent }  from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { routing } from './routes';
@@ -23,7 +23,7 @@ import {DriverequestComponent} from './dashboard/drive_requests.component';
         HttpModule,
         JsonpModule,ReactiveFormsModule,
     FormsModule,
-        routing,routing,MaterialModule.forRoot()
+        routing,routing
     ],
     declarations: [
         AppComponent, UsertableComponent,DriverequestComponent,   LoginComponent, HeaderComponent,SidebarComponent,
